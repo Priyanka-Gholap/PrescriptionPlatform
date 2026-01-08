@@ -17,14 +17,8 @@ This project was developed as part of a **technical test assignment**.
 (Node.js + Express API)
 
 📦 Source Code Access
-
 GitHub Repository:
-👉 📦 Source Code Access
-
-GitHub Repository:
-👉 https://github.com/
-<your-username>/<repo-name>
----
+👉 https://github.com/Priyanka-Gholap/PrescriptionPlatform.git
 
 ## 🔐 Login Credentials
 
