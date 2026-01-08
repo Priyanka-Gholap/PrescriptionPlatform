@@ -1,0 +1,57 @@
+.patient-dashboard {
+  padding: 30px;
+  background: #f8fafc;
+}
+
+.patient-dashboard h2 {
+  color: #1e40af;
+}
+
+.patient-dashboard button {
+  margin-right: 15px;
+  padding: 10px 18px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.patient-dashboard button:hover {
+  background: #1e40af;
+}
+.patient-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 3px solid #2563eb;
+  margin-bottom: 15px;
+}
+.patient-dashboard {
+  padding: 40px;
+  background: #f5f8ff;
+}
+
+.patient-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.patient-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #2563eb;
+}
+
+.actions button {
+  margin-right: 10px;
+  padding: 10px 18px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}

@@ -1,0 +1,41 @@
+.role-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+}
+
+.role-card {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  width: 380px;
+  text-align: center;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.role-card h2 {
+  margin-bottom: 10px;
+  color: #1e3a8a;
+}
+
+.role-card p {
+  margin-bottom: 20px;
+  color: gray;
+}
+
+.role-card button {
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px;
+  font-size: 16px;
+}
+
+.doctor-btn {
+  background: #16a34a;
+}
+
+.doctor-btn:hover {
+  background: #15803d;
+}

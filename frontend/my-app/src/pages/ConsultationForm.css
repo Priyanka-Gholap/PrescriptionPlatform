@@ -1,0 +1,118 @@
+.consult-form {
+  min-height: 100vh;
+  background: #f8fafc;
+  padding: 40px;
+}
+
+.consult-form h2 {
+  color: #1e40af;
+  margin-bottom: 20px;
+}
+
+.form-card {
+  background: white;
+  max-width: 600px;
+  padding: 25px;
+  border-radius: 10px;
+  border: 1px solid #c7d2fe;
+}
+
+.form-card textarea,
+.form-card input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: 1px solid #c7d2fe;
+}
+
+.radio-group {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.radio-group label {
+  color: #1f2937;
+}
+
+.btn-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1e40af;
+}
+
+.payment-title {
+  font-weight: bold;
+  color: #1e40af;
+  margin-bottom: 10px;
+}
+
+.qr-img {
+  width: 180px;
+  display: block;
+  margin: 10px auto 20px;
+}
+.payment-container {
+  background: #f8fafc;
+  padding: 40px;
+}
+
+.payment-box {
+  display: flex;
+  gap: 30px;
+  background: white;
+  padding: 20px;
+  border: 1px solid #c7d2fe;
+}
+
+.qr-section {
+  text-align: center;
+}
+
+.qr-section img {
+  width: 160px;
+}
+
+.pay-details h1 {
+  color: #1e40af;
+}
+
+.pay-details input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.consent-box {
+  margin-top: 20px;
+  background: white;
+  padding: 20px;
+  border: 1px solid #c7d2fe;
+}
+
+.submit-btn {
+  margin-top: 20px;
+  background: #16a34a;
+  color: white;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+}

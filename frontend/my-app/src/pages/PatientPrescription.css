@@ -1,0 +1,29 @@
+.patient-prescriptions {
+  padding: 30px;
+  background: #f8fafc;
+}
+
+.patient-prescriptions h2 {
+  color: #1e40af;
+}
+
+.prescription-card {
+  background: white;
+  border: 1px solid #c7d2fe;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+}
+
+.prescription-card button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.prescription-card button:hover {
+  background: #1e40af;
+}

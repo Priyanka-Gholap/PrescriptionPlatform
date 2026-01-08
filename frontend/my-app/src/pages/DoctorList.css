@@ -1,0 +1,40 @@
+.doctor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 30px;
+  background: #f8fafc;
+}
+
+.doctor-card {
+  background: white;
+  border: 1px solid #c7d2fe;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.doctor-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid #2563eb;
+}
+
+.doctor-card h3 {
+  color: #1e40af;
+}
+
+.doctor-card button {
+  margin-top: 10px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.doctor-card button:hover {
+  background: #1e40af;
+}
