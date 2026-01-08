@@ -8,6 +8,7 @@ export default function DoctorAuth() {
 
   const submit = async (e) => {
     e.preventDefault();
+
     const data = Object.fromEntries(new FormData(e.target));
 
     const url = isLogin
@@ -22,15 +23,12 @@ export default function DoctorAuth() {
 
     const doctor = await res.json();
 
-    if (!doctor || !doctor._id) {
+    if (!res.ok || !doctor?._id) {
       alert("Invalid credentials");
       return;
     }
 
-    // ✅ SAVE LOGIN
     localStorage.setItem("doctor", JSON.stringify(doctor));
-
-    // ✅ REDIRECT (THIS WAS MISSING)
     navigate("/doctor/profile");
   };
 
@@ -58,14 +56,20 @@ export default function DoctorAuth() {
           {isLogin ? "Login" : "Create Account"}
         </button>
 
-        <p
-          className="switch-text"
-          onClick={() => setIsLogin(!isLogin)}
-        >
+        <p className="switch-text" onClick={() => setIsLogin(!isLogin)}>
           {isLogin
             ? "New doctor? Create account"
             : "Already registered? Login"}
         </p>
+
+        {/* ✅ TEST CREDENTIALS */}
+        {isLogin && (
+          <div className="test-credentials">
+            <p><strong>Test Doctor Login</strong></p>
+            <p>Email: doctor@test.com</p>
+            <p>Phone: 12345</p>
+          </div>
+        )}
       </form>
     </div>
   );

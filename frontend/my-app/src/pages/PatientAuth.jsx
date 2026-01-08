@@ -7,55 +7,46 @@ export default function PatientAuth() {
   const navigate = useNavigate();
 
   const submit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  try {
-    let res;
-    let json;
+    try {
+      let res;
+      let json;
 
-    if (isLogin) {
-      // LOGIN → JSON
-      const data = Object.fromEntries(new FormData(e.target));
+      if (isLogin) {
+        const data = Object.fromEntries(new FormData(e.target));
 
-      res = await fetch("http://localhost:5000/patient/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email: data.email,
-          phone: data.phone,
-        }),
-      });
-    } else {
-      // SIGNUP → FormData
-      const formData = new FormData(e.target);
+        res = await fetch("http://localhost:5000/patient/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: data.email,
+            phone: data.phone,
+          }),
+        });
+      } else {
+        const formData = new FormData(e.target);
 
-      res = await fetch("http://localhost:5000/patient/signup", {
-        method: "POST",
-        body: formData,
-      });
+        res = await fetch("http://localhost:5000/patient/signup", {
+          method: "POST",
+          body: formData,
+        });
+      }
+
+      json = await res.json();
+
+      if (!res.ok || !json?._id) {
+        alert(json?.error || "Invalid credentials");
+        return;
+      }
+
+      localStorage.setItem("patient", JSON.stringify(json));
+      navigate("/patient/dashboard");
+    } catch (err) {
+      console.error("Auth error:", err);
+      alert("Cannot connect to server");
     }
-
-    // 🔥 READ RESPONSE SAFELY
-    json = await res.json();
-
-    if (!res.ok) {
-      alert(json.error || "Something went wrong");
-      return;
-    }
-
-    if (!json._id) {
-      alert("Invalid credentials");
-      return;
-    }
-
-    localStorage.setItem("patient", JSON.stringify(json));
-    navigate("/patient/dashboard");
-
-  } catch (err) {
-    console.error("Auth error:", err);
-    alert("Cannot connect to server");
-  }
-};
+  };
 
   return (
     <div className="auth-wrapper">
@@ -71,13 +62,7 @@ export default function PatientAuth() {
               name="illnessHistory"
               placeholder="Illness History (comma separated)"
             />
-
-            <input
-              type="file"
-              name="profileImage"
-              accept="image/*"
-              required
-            />
+            <input type="file" name="profileImage" accept="image/*" required />
           </>
         )}
 
@@ -93,6 +78,15 @@ export default function PatientAuth() {
             ? "New patient? Create account"
             : "Already registered? Login"}
         </p>
+
+        {/* ✅ TEST CREDENTIALS */}
+        {isLogin && (
+          <div className="test-credentials">
+            <p><strong>Test Patient Login</strong></p>
+            <p>Email: patient@test.com</p>
+            <p>Phone: 12345</p>
+          </div>
+        )}
       </form>
     </div>
   );

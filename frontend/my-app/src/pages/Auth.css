@@ -50,3 +50,16 @@
   cursor: pointer;
   font-size: 14px;
 }
+.test-credentials {
+  margin-top: 18px;
+  padding: 12px;
+  border: 1px dashed #94a3b8;
+  border-radius: 6px;
+  background: #f8fafc;
+  font-size: 13px;
+  color: #334155;
+}
+
+.test-credentials p {
+  margin: 4px 0;
+}
