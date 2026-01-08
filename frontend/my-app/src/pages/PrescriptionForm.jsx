@@ -20,7 +20,6 @@ export default function PrescriptionForm({ consultationId }) {
 
     const json = await res.json();
     alert("Prescription Generated");
-
     window.open(`http://localhost:5000${json.pdfUrl}`, "_blank");
     navigate("/doctor/prescriptions");
   };
