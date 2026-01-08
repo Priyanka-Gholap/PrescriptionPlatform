@@ -100,8 +100,8 @@ export default function PatientAuth() {
         {isLogin && (
           <div className="test-credentials">
             <p><strong>Test Patient Login</strong></p>
-            <p>Email: patient@test.com</p>
-            <p>Phone: 12345</p>
+            <p>Email: test@gmail.com</p>
+            <p>Phone: 123456789</p>
           </div>
         )}
       </form>
