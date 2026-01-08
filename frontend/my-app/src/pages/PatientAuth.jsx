@@ -6,47 +6,64 @@ export default function PatientAuth() {
   const [isLogin, setIsLogin] = useState(true);
   const navigate = useNavigate();
 
-  const submit = async (e) => {
-    e.preventDefault();
+ const submit = async (e) => {
+  e.preventDefault();
 
-    try {
-      let res;
-      let json;
+  try {
+    let res;
 
-      if (isLogin) {
-        const data = Object.fromEntries(new FormData(e.target));
+    if (isLogin) {
+      const data = Object.fromEntries(new FormData(e.target));
 
-        res = await fetch("http://localhost:5000/patient/login", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            email: data.email,
-            phone: data.phone,
-          }),
-        });
-      } else {
-        const formData = new FormData(e.target);
+      res = await fetch("http://localhost:5000/patient/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: data.email,
+          phone: data.phone,
+        }),
+      });
+    } else {
+      const formData = new FormData(e.target);
 
-        res = await fetch("http://localhost:5000/patient/signup", {
-          method: "POST",
-          body: formData,
-        });
-      }
-
-      json = await res.json();
-
-      if (!res.ok || !json?._id) {
-        alert(json?.error || "Invalid credentials");
-        return;
-      }
-
-      localStorage.setItem("patient", JSON.stringify(json));
-      navigate("/patient/dashboard");
-    } catch (err) {
-      console.error("Auth error:", err);
-      alert("Cannot connect to server");
+      res = await fetch("http://localhost:5000/patient/signup", {
+        method: "POST",
+        body: formData,
+      });
     }
-  };
+
+    // ✅ HANDLE EXPECTED ERRORS FIRST
+    if (res.status === 401) {
+      alert("Invalid email or phone");
+      return;
+    }
+
+    if (res.status === 409) {
+      alert("Patient already exists. Please login.");
+      setIsLogin(true);
+      return;
+    }
+
+    if (!res.ok) {
+      alert("Something went wrong");
+      return;
+    }
+
+    const json = await res.json();
+
+    if (!json?._id) {
+      alert("Invalid server response");
+      return;
+    }
+
+    localStorage.setItem("patient", JSON.stringify(json));
+    navigate("/patient/dashboard");
+
+  } catch (err) {
+    console.error("Auth error:", err);
+    alert("Cannot connect to server");
+  }
+};
 
   return (
     <div className="auth-wrapper">
