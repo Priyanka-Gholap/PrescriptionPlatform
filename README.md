@@ -16,6 +16,14 @@ This project was developed as part of a **technical test assignment**.
 👉 https://prescriptionplatformbackend.onrender.com  
 (Node.js + Express API)
 
+📦 Source Code Access
+
+GitHub Repository:
+👉 📦 Source Code Access
+
+GitHub Repository:
+👉 https://github.com/
+<your-username>/<repo-name>
 ---
 
 ## 🔐 Login Credentials
