@@ -1,48 +1,31 @@
-# 🏥 Online Prescription & Consultation Platform (MERN)
+🏥 Online Prescription & Consultation Platform (MERN)
 
-A full-stack **MERN web application** that enables **patients and doctors** to manage consultations, generate digital prescriptions, and securely store medical data including uploaded files and PDF prescriptions.
+A full-stack MERN web application that enables patients and doctors to manage consultations, generate digital prescriptions, and securely store medical data including uploaded files and PDF prescriptions.
+This project was developed as part of a technical test assignment.
 
-This project was developed as part of a **technical test assignment**.
+🚀 Live Project Links
 
----
-
-## 🚀 Live Project Links
-
-### 🔗 Frontend (Hosted)
-👉 https://prescriptionplatform.netlify.app/  
+🔗 Frontend (Hosted)
+👉 https://onlinepr.netlify.app
 (Hosted on Netlify)
 
-### 🔗 Backend (Hosted)
-👉 https://prescriptionplatformbackend.onrender.com  
+🔗 Backend (Hosted)
+👉 https://prescriptionplatformbackend.onrender.com
 (Node.js + Express API)
 
-📦 Source Code Access
+📦 Source Code
 GitHub Repository:
 👉 https://github.com/Priyanka-Gholap/PrescriptionPlatform.git
 
-## 🔐 Login Credentials
+🔐 Demo Login Credentials
+👨‍⚕️ Doctor Login
+Email: doctor@test.com
+Phone: 12345
 
-### 👨‍⚕️  Doctor Login
-- **Email:** doctor@test.com
-- **Phone:** 12345 
-
-### 🧑‍🦱 Patient Login
-- **Email:** test@gmail.com
-- **Phone:** 123456789 
-
-> ⚠️ These are demo credentials created for testing purposes only.
-
----
-
-## 🗂️ Server / Database Credentials (For Review)
-
-- **Backend Framework:** Node.js + Express
-- **Database:** MongoDB (Atlas)
-- **File Storage:** Local server (uploads & PDFs)
-
-```env
-MONGO_URI=your_mongodb_connection_string
-PORT=5000
+🧑‍🦱 Patient Login
+Email: test@gmail.com
+Phone: 123456789
+⚠️ These credentials are provided only for evaluation and testing purposes.
 
 🛠️ Tech Stack
 Frontend
@@ -55,50 +38,61 @@ Backend
 Node.js
 Express.js
 MongoDB (Mongoose)
-Multer (File Uploads)
-pdf-lib (PDF Generation)
+Multer (file uploads)
+pdf-lib (PDF generation)
 
 ✨ Features
+
 👨‍⚕️ Doctor
 Doctor registration & login
 View assigned consultations
 Create digital prescriptions
-Auto-generate PDF prescriptions
+Auto-generate prescription PDFs
 
 🧑‍🦱 Patient
 Patient registration with profile image upload
 Login using email & phone
-View prescriptions
+View consultation history
 Download prescription PDFs
 
 📄 Prescription System
-PDF generation with doctor name & date
+PDF generation with doctor details and date
 Stored securely on server
 Accessible via patient dashboard
 
 🌐 API Routes
 🔐 Authentication
-POST	/doctor/signup	 Doctor registration
-POST	/doctor/login	   Doctor login
-POST	/patient/signup	 Patient signup with image
-POST	/patient/login	 Patient login
+ 
+POST	/doctor/signup	    Doctor registration
+POST	/doctor/login	      Doctor login
+POST	/patient/signup	    Patient signup with image
+POST	/patient/login	    Patient login
 
 📊 Data
-GET	/doctors	                        Fetch all doctors
-POST	/consultation	                  Create consultation
+GET	/doctors	             Fetch all doctors
+POST	/consultation	       Create consultation
 GET	/doctor/consultations/:doctorId	  Doctor dashboard
-GET	/patient/prescriptions/:patientId	Patient prescriptions
+GET	/patient/prescriptions/:patientId	  Patient prescriptions
 
 📄 Prescription
 POST	/prescription/:consultationId	  Generate prescription PDF
 
-🗄️ Database Dump
-Located in: /db-dump/
-Includes collections:
-doctors
-patients
-consultations
-prescriptions
+📦 Database Details
+This project uses MongoDB Compass as the cloud database.
+
+Database Name: test
+Collections:
+doctors – Doctor profiles (name, specialty, experience, contact info)
+patients – Patient profiles and medical history
+consultations – Patient-doctor consultation records
+prescriptions – Generated prescriptions with PDF references
+Sample data is included to demonstrate full application flow.
+
+🗂 Database Dump
+A MongoDB database dump is included for reference.
+Location:
+/db-dump/
+This can be used to restore the database locally if required.
 
 ⚙️ How to Run Locally
 Backend
@@ -112,12 +106,11 @@ npm install
 npm run dev
 
 📌 Notes for Reviewers
-This project demonstrates real-world MERN architecture
-Clean API structure & error handling
-PDF generation and file handling included
-Ready for production enhancements (JWT, role-based auth)
+Demonstrates real-world MERN architecture
+Clean API structure with proper error handling
+File uploads and PDF generation implemented
 
 👩‍💻 Author
 Priyanka Gholap
 MERN Stack Developer
-🔗 GitHub: https://github.com/<your-username>
+🔗 GitHub: https://github.com/Priyanka-Gholap
