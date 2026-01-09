@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "./PrescriptionForm.css";
+import API_BASE_URL from "../config/api";   // ✅ ONLY NEW LINE
 
 export default function PrescriptionForm({ consultationId }) {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ export default function PrescriptionForm({ consultationId }) {
     const data = Object.fromEntries(new FormData(e.target));
 
     const res = await fetch(
-      `http://localhost:5000/prescription/${consultationId}`,
+      `${API_BASE_URL}/prescription/${consultationId}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -20,7 +21,7 @@ export default function PrescriptionForm({ consultationId }) {
 
     const json = await res.json();
     alert("Prescription Generated");
-    window.open(`http://localhost:5000${json.pdfUrl}`, "_blank");
+    window.open(`${API_BASE_URL}${json.pdfUrl}`, "_blank");
     navigate("/doctor/prescriptions");
   };
 

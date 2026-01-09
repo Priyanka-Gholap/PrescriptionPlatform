@@ -1,24 +1,24 @@
 import { useEffect, useState } from "react";
 import "./PatientPrescription.css";
+import API_BASE_URL from "../config/api";   // ✅ ONLY NEW LINE
 
 export default function PatientPrescriptions() {
   const [prescriptions, setPrescriptions] = useState([]);
   const patient = JSON.parse(localStorage.getItem("patient"));
 
-useEffect(() => {
-  if (!patient?._id) return;
+  useEffect(() => {
+    if (!patient?._id) return;
 
-  fetch(`http://localhost:5000/patient/prescriptions/${patient._id}`)
-    .then(res => {
-      if (!res.ok) {
-        throw new Error("Failed to fetch");
-      }
-      return res.json();
-    })
-    .then(setPrescriptions)
-    .catch(err => console.error("Fetch error:", err));
-}, [patient?._id]);
-
+    fetch(`${API_BASE_URL}/patient/prescriptions/${patient._id}`)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error("Failed to fetch");
+        }
+        return res.json();
+      })
+      .then(setPrescriptions)
+      .catch(err => console.error("Fetch error:", err));
+  }, [patient?._id]);
 
   return (
     <div className="patient-prescriptions">
@@ -34,7 +34,7 @@ useEffect(() => {
 
           <button
             onClick={() =>
-              window.open(`http://localhost:5000${p.pdfPath}`, "_blank")
+              window.open(`${API_BASE_URL}${p.pdfPath}`, "_blank")
             }
           >
             Download Prescription

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Auth.css";
+import API_BASE_URL from "../config/api";   // ✅ ONLY NEW LINE
 
 export default function PatientAuth() {
   const [isLogin, setIsLogin] = useState(true);
@@ -15,7 +16,7 @@ export default function PatientAuth() {
     if (isLogin) {
       const data = Object.fromEntries(new FormData(e.target));
 
-      res = await fetch("http://localhost:5000/patient/login", {
+      res = await fetch(`${API_BASE_URL}/patient/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -26,7 +27,7 @@ export default function PatientAuth() {
     } else {
       const formData = new FormData(e.target);
 
-      res = await fetch("http://localhost:5000/patient/signup", {
+      res = await fetch(`${API_BASE_URL}/patient/signup`, {
         method: "POST",
         body: formData,
       });

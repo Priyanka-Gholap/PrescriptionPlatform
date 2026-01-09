@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import PrescriptionForm from "./PrescriptionForm";
 import "./DoctorDashboard.css";
+import API_BASE_URL from "../config/api";   // ✅ ONLY NEW LINE
 
 export default function DoctorDashboard() {
   const [consultations, setConsultations] = useState([]);
@@ -11,7 +12,7 @@ export default function DoctorDashboard() {
   useEffect(() => {
     if (!doctor?._id) return;
 
-    fetch(`http://localhost:5000/doctor/consultations/${doctor._id}`)
+    fetch(`${API_BASE_URL}/doctor/consultations/${doctor._id}`)
       .then(res => {
         if (!res.ok) throw new Error("Fetch failed");
         return res.json();

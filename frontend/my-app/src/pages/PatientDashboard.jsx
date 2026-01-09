@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "./PatientDashboard.css";
+import API_BASE_URL from "../config/api";   // ✅ ONLY NEW LINE
 
 export default function PatientDashboard() {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ export default function PatientDashboard() {
         <img
           src={
             patient.profileImage
-              ? `http://localhost:5000${patient.profileImage}`
+              ? `${API_BASE_URL}${patient.profileImage}`
               : "/default-avatar.png"
           }
           alt="Patient"

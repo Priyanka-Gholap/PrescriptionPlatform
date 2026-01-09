@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Auth.css";
+import API_BASE_URL from "../config/api";   // ✅ ONLY NEW LINE
 
 export default function DoctorAuth() {
   const [isLogin, setIsLogin] = useState(true);
@@ -12,8 +13,8 @@ export default function DoctorAuth() {
     const data = Object.fromEntries(new FormData(e.target));
 
     const url = isLogin
-      ? "http://localhost:5000/doctor/login"
-      : "http://localhost:5000/doctor/signup";
+      ? `${API_BASE_URL}/doctor/login`
+      : `${API_BASE_URL}/doctor/signup`;
 
     const res = await fetch(url, {
       method: "POST",

@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./DoctorList.css";
+import API_BASE_URL from "../config/api";   // ✅ ONLY NEW LINE
 
 export default function DoctorList() {
   const [doctors, setDoctors] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:5000/doctors")
+    fetch(`${API_BASE_URL}/doctors`)
       .then(res => res.json())
       .then(setDoctors)
       .catch(err => console.error(err));

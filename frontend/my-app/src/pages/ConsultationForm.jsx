@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./ConsultationForm.css";
 import { useNavigate, useParams } from "react-router-dom";
+import API_BASE_URL from "../config/api";
 
 export default function ConsultationForm() {
   const [step, setStep] = useState(1);
@@ -38,9 +39,9 @@ export default function ConsultationForm() {
   }
 
   try {
-    const res = await fetch("http://localhost:5000/consultation", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+fetch(`${API_BASE_URL}/patient/login`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         doctorId,
         patientId: patient._id,
